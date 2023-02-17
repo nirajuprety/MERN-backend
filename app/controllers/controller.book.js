@@ -56,6 +56,29 @@ exports.store = async(req, res) => {
     }
 }
 
+exports.update = async(req, res) => {
+    try {
+        const { name, price, category, author, stock } = req.body;
+        const image = await upload(req.files.image, "books");
+        const bookId = req.params.bookId; // get the book ID from the request parameters
+
+        const book = await Book.findByIdAndUpdate(bookId, { name, price, category, author, stock, image }, { new: true });
+
+        res.status(200).json({
+            success: true,
+            message: "Book updated successfully",
+            data: book
+        });
+    } catch (err) {
+        console.log(err); // log the error to the console
+        res.status(500).json({
+            success: false,
+            message: "Server error",
+            error: err.message
+        });
+    }
+}
+
 
 // @desc    Delete specific book
 // @route   DELETE /api/v1/book
