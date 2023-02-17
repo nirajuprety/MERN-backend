@@ -7,7 +7,7 @@ exports.createBook = async (req, res) => {
     console.log(req.files);
 
     const { name, price, category, author, stock } = req.body;
-    const image = req.files;
+    const image = req.files.image
     
     console.log(req.files);
     
