@@ -10,6 +10,7 @@ const dbConn = require('./app/config/db');
 dbConn();
 const cors = require('cors');
 
+app.use(express.static('public'));
 app.use(express.json());
 app.use(fileUpload());
 app.use(cors());

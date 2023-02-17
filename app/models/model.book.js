@@ -16,8 +16,9 @@ const bookSchema = new mongoose.Schema({
     required: true
   },
   author: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Author",
+    // type: mongoose.Schema.Types.ObjectId,
+    // ref: "Author",
+    type : String,
     required: true
   },
   stock: {
@@ -25,7 +26,8 @@ const bookSchema = new mongoose.Schema({
     required: true
   },
   image: {
-    type: String
+    type: String,
+    required : true
   }
 });
 
